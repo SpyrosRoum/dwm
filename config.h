@@ -1,7 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
 #include "movestack.c"
-#include "layout.c"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -61,7 +60,6 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    // first entry is default
 	{ "><>",      NULL },    // no layout function means floating behavior
 	{ "[M]",      monocle },
-	{ "HHH",      grid },
 	{ NULL,       NULL}      // For the cycle layout patch
 };
 
