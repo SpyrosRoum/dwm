@@ -48,6 +48,7 @@ static const Rule rules[] = {
     { NULL,              NULL,       "Event Tester",0,         1,           0,          1,        -1 }, /* xev */
     { "Dwarf_Fortress",  NULL,       NULL,       0,            0,           0,          1,        -1 }, /* xev */
     { "Alacritty",       NULL,       NULL,       0,            0,           1,         -1,        -1 },
+    { "GitKraken",       NULL,       NULL,       1 << 3,       0,           0,         -1,        -1 },
 };
 
 /* layout(s) */
