@@ -80,9 +80,6 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
-static const char scratchpadname[] = "bpython";
-static const char *bpythonPad[] = { "alacritty", "-t", scratchpadname, "-d", "120 34", NULL };
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	// Apps are launched using sxhkd
@@ -99,9 +96,6 @@ static Key keys[] = {
 	// Resize
 	{ MODKEY,                       XK_comma,  setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_period, setmfact,       {.f = +0.05} },
-
-	// Scratchpads
-	{ MODKEY|ShiftMask,             XK_b,      togglescratch,   {.v = bpythonPad} },
 
 	// Kill current
 	{ MODKEY,                       XK_q,      killclient,     {0} },
