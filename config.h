@@ -1,5 +1,3 @@
-
-
 #include "movestack.c"
 
 /* appearance */
@@ -8,7 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true"  };
+// static const char *fonts[]          = { "monospace:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true"  };
+static const char *fonts[]          = { "ubuntu-mono-nerd:size=14", "JoyPixels:pixelsize=14:antialias=true:autohint=true"  };
 static const char dmenufont[]       = "ubuntu-mono-nerd:size=12";
 
 // static const char col_gray1[]       = "#282828"; // "#222222"
@@ -37,12 +36,14 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class             instance    title       tags mask     isfloating   isterminal noswallow monitor */
-	{ "Spotify",         "spotify",  NULL,       1 << 7,       0,           0,         -1,         0 },
+    { "Thunderbird",     NULL,       NULL,       1 << 4,       0,           0,         -1,         1 },
+	{ "Spotify",         NULL,       "Spotify Premium",1 << 7, 0,           0,         -1,         0 },
 	{ "Steam",           NULL,       NULL,       1 << 3,       0,           0,         -1,        -1 },
 	{ "qBittorrent",     NULL,       NULL,       1 << 8,       0,           0,         -1,         0 },
 	{ "discord",         NULL,       NULL,       1 << 1,       0,           0,         -1,         1 },
 	{ "firefox",         NULL,       NULL,       1,            0,           0,         -1,        -1 },
     { "jetbrains-clion", NULL,       NULL,       1 << 2,       0,           0,         -1,         0 },
+    { NULL,              NULL,    "dwm - dwm.c", 1 << 2,       0,           0,         -1,         1 },
     { "jetbrains-pycharm", NULL,     NULL,       1 << 2,       0,           0,         -1,         0 },
     { "Gnome-todo",      NULL,       NULL,       1 << 6,       0,           0,         -1,         0 },
     { NULL,              NULL,       "Event Tester",0,         1,           0,          1,        -1 }, /* xev */
@@ -59,6 +60,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    // first entry is default
+	{ "[D]",      deck },
 	{ "><>",      NULL },    // no layout function means floating behavior
 	{ "[M]",      monocle },
 	{ NULL,       NULL}      // For the cycle layout patch
@@ -149,7 +151,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button3,        spawn,          CMD("rofi -show p -modi p:~/.local/bin/rofi-power-menu -width 20 -lines 2") },
+	{ ClkStatusText,        0,              Button3,        spawn,          CMD("~/.local/bin/rofi-power-menu") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
